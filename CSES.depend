@@ -1,4 +1,4 @@
 # depslib dependency file v1.0
-1711600997 source:c:\hls\cpp563\cses-cpp\cses\main.cpp
-	<iostream>
+1711603830 source:c:\hls\cpp563\cses-cpp\cses\main.cpp
+	<bits/stdc++.h>
 

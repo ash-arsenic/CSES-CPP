@@ -4,27 +4,28 @@ using namespace std;
 
 typedef long long ll;
 
-class MissingNumber {
+class Repetition {
     public:
     static void execute() {
-        long input;
-        cin >> input;
-        long input2[input-1];
+        string input1;
+        cin >> input1;
 
-        for(int i=0; i<input-1; i++) cin >> input2[i];
-
-        ll total = 0;
-        for(int i=1; i<=input; i++) total += i; // Adding 1 to N numbers
-
-        ll inputTotal = 0;
-        for(int i=0; i<input-1; i++) inputTotal += input2[i]; // Adding all the input numbers
-
-        cout << total - inputTotal; // 15 - 11 -> 4
+        int count = 1;
+        int result = 0;
+        for(int i=1; i<input1.length(); i++) {
+            if(input1[i] != input1[i-1]) { // If previous is not same reset the counter.
+                result = result < count ? count : result;
+                count = 0;
+            }
+            count++;
+        }
+        result = result < count ? count : result; // AAAAAAA case
+        cout << result;
     }
 };
 
 int main()
 {
-    MissingNumber::execute();
+    Repetition::execute();
     return 0;
 }
