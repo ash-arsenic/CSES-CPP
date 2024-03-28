@@ -4,28 +4,30 @@ using namespace std;
 
 typedef long long ll;
 
-class Repetition {
+class IncreasingArray {
     public:
     static void execute() {
-        string input1;
+        int input1;
         cin >> input1;
 
-        int count = 1;
-        int result = 0;
-        for(int i=1; i<input1.length(); i++) {
-            if(input1[i] != input1[i-1]) { // If previous is not same reset the counter.
-                result = result < count ? count : result;
-                count = 0;
+        int input2[input1];
+        for(int i=0; i<input1; i++) cin >> input2[i];
+
+        long result = 0;
+        for(int i=1; i<input1; i++) {
+            int diff = input2[i-1] - input2[i]; // Get the difference
+            if(diff > 0) {
+                input2[i] += diff; // Update the current element
+                result += diff; // Add all the difference
             }
-            count++;
         }
-        result = result < count ? count : result; // AAAAAAA case
+
         cout << result;
     }
 };
 
 int main()
 {
-    Repetition::execute();
+    IncreasingArray::execute();
     return 0;
 }
